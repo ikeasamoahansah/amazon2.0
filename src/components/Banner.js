@@ -6,12 +6,11 @@ const Banner = () => {
   return (
     <div className="relative">
       <div className="absolute w-full h-32 bg-gradient-to-t from-gray-100 bottom-0 z-20"></div>
-      //todo: install react carousel
       <Carousel
         autoPlay
         infiniteLoop
         showStatus={false}
-        showIndicators={flase}
+        showIndicators={false}
         showThumbs={false}
         interval={5000}
       >
