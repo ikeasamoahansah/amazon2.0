@@ -1,5 +1,5 @@
-import firebase from "firebase/app";
-
+import firebase from "firebase";
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDuj8jVmv6XlvUtjuo6H0rdK93gfTvkErw",
   authDomain: "zilion-ecommerce.firebaseapp.com",
