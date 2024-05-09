@@ -6,16 +6,16 @@ import { useDispatch } from "react-redux";
 import { addToBasket } from "@/slices/basketSlice";
 // import { selectItems } from "@/slices/basketSlice";
 
+export function currencyFormat(num) {
+  return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+}
+
 function Product({ id, title, price, description, category, image }) {
   // Dispatch the action to add an item to the basket
   const dispatch = useDispatch();
   // Generate a random rating outside of the component
   const rating = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
   const [hasPrime] = useState(Math.random() < 0.5);
-
-  function currencyFormat(num) {
-    return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  }
 
   const addItemToBasket = () => {
     const product = {

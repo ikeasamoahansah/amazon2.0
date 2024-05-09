@@ -3,6 +3,7 @@ import Image from "next/image";
 import { StarIcon } from "@heroicons/react/solid";
 import { useDispatch } from "react-redux";
 import { addToBasket, removeFromBasket } from "@/slices/basketSlice";
+import { currencyFormat } from "./Product";
 // import { currencyFormat } from ";
 import { selectItems } from "@/slices/basketSlice";
 
