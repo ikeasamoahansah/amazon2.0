@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "@/components/Header";
 import CheckoutProduct from "@/components/CheckoutProduct";
-import { useSelector } from "react-redux";
-import { selectItems } from "@/slices/basketSlice";
+// import { useSelector } from "react-redux";
+// import { selectItems } from "@/slices/basketSlice";
 import Image from "next/image";
 function checkout() {
-  const items = useSelector(selectItems);
+  // const items = useSelector(selectItems);
   return (
     <div className="bg-gray-100">
       <Header />
