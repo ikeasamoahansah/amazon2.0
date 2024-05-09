@@ -1,14 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { useSelector } from "react-redux";
+// import { selectItems } from "@/slices/basketSlice";
+// import { configureStore } from "@reduxjs/toolkit";
+// import basketReducer from "@/slices/basketSlice";
 
 const initialState = {
   items: [],
 };
 
 export const basketSlice = createSlice({
-  name: "basket",
+  name: "basket", // Name of the slice
   initialState,
   reducers: {
-    addToBasket: (state, action) => {},
+    // Actions
+    addToBasket: (state, action) => {
+      state.items = [...state.items, action.payload];
+    },
     removeFromBasket: (state, action) => {},
   },
 });
