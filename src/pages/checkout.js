@@ -4,8 +4,21 @@ import CheckoutProduct from "@/components/CheckoutProduct";
 import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/basketSlice";
 import Image from "next/image";
+// import { currencyFormat } from "@/components/Product";
+// import { CurrencyDollarIcon } from "@heroicons/react/outline";
+// import NumberFormat from "react-number-format";
+import { useSession } from "next-auth/react";
+import { selectTotal } from "@/slices/basketSlice";
+
 function checkout() {
+  // use selector and session storage
   const items = useSelector(selectItems);
+  const { data: session } = useSession();
+  const total = useSelector(selectTotal);
+  const formattedTotal = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(total);
   return (
     <div className="bg-gray-100">
       <Header />
@@ -27,7 +40,7 @@ function checkout() {
                 key={i}
                 id={item.id}
                 title={item.title}
-                price={item.price}
+                price={item.price} // Modify this line
                 description={item.description}
                 category={item.category}
                 image={item.image}
@@ -38,7 +51,26 @@ function checkout() {
           </div>
         </div>
         {/* Right */}
-        <div></div>
+        <div className="flex flex-col bg-white p-10 shadow-md">
+          {/* check if there are items to be checked out and render */}
+          {items.length > 0 && (
+            <>
+              <h2 className="whitespace-nowrap">
+                Subtotal ({items.length} items) :
+                <span className="font-bold p-1"> {formattedTotal}</span>
+              </h2>
+              <button
+                disabled={!session}
+                className={`button mt-2 ${
+                  !session &&
+                  "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
+                }`}
+              >
+                {!session ? "Sign In to checkout" : "proceed to checkout"}
+              </button>
+            </>
+          )}
+        </div>
       </main>
     </div>
   );
