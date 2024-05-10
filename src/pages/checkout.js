@@ -4,13 +4,11 @@ import CheckoutProduct from "@/components/CheckoutProduct";
 import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/basketSlice";
 import Image from "next/image";
-// import { currencyFormat } from "@/components/Product";
-// import { CurrencyDollarIcon } from "@heroicons/react/outline";
-// import NumberFormat from "react-number-format";
 import { useSession } from "next-auth/react";
 import { selectTotal } from "@/slices/basketSlice";
 
-function checkout() {
+function Checkout() {
+  // Changed from 'checkout' to 'Checkout'
   // use selector and session storage
   const items = useSelector(selectItems);
   const { data: session } = useSession();
@@ -76,4 +74,4 @@ function checkout() {
   );
 }
 
-export default checkout;
+export default Checkout; // Changed from 'checkout' to 'Checkout'

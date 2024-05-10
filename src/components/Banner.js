@@ -21,7 +21,7 @@ const Banner = () => {
             height={1080}
             loading="lazy"
             src="https://links.papareact.com/gi1"
-            alt=""
+            alt="carousel image 1"
           />
         </div>
         <div>
@@ -31,7 +31,7 @@ const Banner = () => {
             height={1080}
             loading="lazy"
             src="https://links.papareact.com/6ff"
-            alt=""
+            alt=" carousel image 2"
           />
         </div>
         <div>
@@ -41,7 +41,7 @@ const Banner = () => {
             width={1920}
             height={1080}
             src="https://links.papareact.com/7ma"
-            alt=""
+            alt=" carousel image 3"
           />
         </div>
       </Carousel>

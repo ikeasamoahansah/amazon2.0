@@ -45,7 +45,13 @@ function CheckoutProduct({
 
   return (
     <div className="grid grid-cols-5 ">
-      <Image src={image} height={200} width={200} className="object-contain" />
+      <Image
+        src={image}
+        height={200}
+        width={200}
+        alt="ads"
+        className="object-contain"
+      />
       <div className="col-span-3 mx-5">
         <p>{title}</p>
         <div className="flex">
@@ -64,8 +70,8 @@ function CheckoutProduct({
               height={48}
               loading="lazy"
               className="w-12"
-              src="https://links.papareact.com/fdw"
-              alt=""
+              src="/amazon-prime.svg"
+              alt=" prime logo"
             />
             <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
           </div>

@@ -58,14 +58,16 @@ function Product({ id, title, price, description, category, image }) {
       /> */}
 
       {hasPrime && (
-        <div className="flex items-center space-x-2 -mt-5">
-          <img
+        <div className="flex items-center space-x-2">
+          <Image
+            width={48}
+            height={48}
+            alt="prime logo"
             loading="lazy"
             className="w-12"
-            src="https://links.papareact.com/fdw"
-            alt=""
+            src="/amazon-prime.svg"
           />
-          <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
+          <p className="text-xs text-gray-500 mb-1">FREE Next-day Delivery</p>
         </div>
       )}
       <button onClick={addItemToBasket} className="mt-auto button">

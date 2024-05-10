@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Head from "next/head";
 import Banner from "../components/Banner";
 import ProductFeed from "../components/ProductFeed";
-import CheckoutProduct from "@/components/CheckoutProduct";
+// import CheckoutProduct from "@/components/CheckoutProduct";
 export default function Home({ products }) {
   return (
     <div className="bg-gray-100">

@@ -25,6 +25,7 @@ const Header = () => {
             src="https://links.papareact.com/f90"
             width={80}
             height={40}
+            alt="Amazon Logo"
             // layout="responsive"
             className="p-1 cursor-pointer object-contain"
           />
@@ -44,11 +45,11 @@ const Header = () => {
             <p className="hover:underline">
               {session ? `Hello, ${session.user.name}` : "Sign In"}
             </p>
-            <p className="font-extrabold md:text-sm">Account & List</p>
+            <p className="font-extrabold md:text-sm">Account &amp; List</p>
           </div>
           <div className="link">
             <p>Returns</p>
-            <p className="font-extrabold md:text-sm">& Orders</p>
+            <p className="font-extrabold md:text-sm"> &amp; Orders</p>
           </div>
           <div
             onClick={() => router.push("/checkout")}
@@ -72,7 +73,7 @@ const Header = () => {
         </p>
         <p className="link">Prime Video</p>
         <p className="link">Amazon Business</p>
-        <p className="link">Today's Deals</p>
+        <p className="link">Today&apos;s Deals</p>
         <p className="link">Electronics</p>
       </div>
     </header>
