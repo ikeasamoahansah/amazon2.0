@@ -23,10 +23,10 @@ const Header = () => {
           <Image
             onClick={() => router.push("/")}
             src="https://links.papareact.com/f90"
-            width={100}
+            width={80}
             height={40}
-            objectFit="contain"
-            className="p-1 cursor-pointer"
+            // layout="responsive"
+            className="p-1 cursor-pointer object-contain"
           />
         </div>
         {/*  Search */}

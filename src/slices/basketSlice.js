@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
-// import { selectItems } from "@/slices/basketSlice";
-import { configureStore } from "@reduxjs/toolkit";
-import basketReducer from "@/slices/basketSlice";
+// import { useSelector } from "react-redux";
+// import { sel ectItems } from "@/slices/basketSlice";
+// import { configureStore } from "@reduxjs/toolkit";
+// import basketReducer from "@/slices/basketSlice";
 
 const initialState = {
   items: [],
