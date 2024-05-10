@@ -19,7 +19,7 @@ const Header = () => {
     <header className="sticky top-0 z-50">
       {/* Top Nav */}
       <div className="flex items-center bg-blue-950 p-1 flex-grow py-2 ">
-        <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
+        <div className="mt-2 flex items-center flex-grow sm:flex-grow-0 mr-2">
           <Image
             onClick={() => router.push("/")}
             src="https://links.papareact.com/f90"
@@ -54,7 +54,7 @@ const Header = () => {
             onClick={() => router.push("/checkout")}
             className="relative link flex items-center"
           >
-            <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
+            <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
               {items.length}
             </span>
             <ShoppingCartIcon className="h-10" />
