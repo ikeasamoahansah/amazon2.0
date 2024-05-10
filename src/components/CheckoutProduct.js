@@ -59,7 +59,9 @@ function CheckoutProduct({
         <p>{formattedPrice}</p>
         {hasPrime && (
           <div className="flex items-center space-x-2">
-            <img
+            <Image
+              width={48}
+              height={48}
               loading="lazy"
               className="w-12"
               src="https://links.papareact.com/fdw"
