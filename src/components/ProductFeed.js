@@ -19,15 +19,16 @@ function ProductFeed({ products }) {
           />
         ))}
       <Image
-        width={400}
+        width={800}
         height={400}
-        className="md:col-span-full object-contain"
+        className="md:col-span-full"
+        layout="responsive"
         src="https://links.papareact.com/dyz"
         alt="Ad Banner"
       />
       <div className="md:col-span-2">
         {products
-          .slice(7,8 )
+          .slice(7, 8)
           .map(({ id, title, price, description, category, image }) => (
             <Product
               key={id}
