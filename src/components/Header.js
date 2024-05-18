@@ -20,7 +20,8 @@ const Header = () => {
       {/* Top Nav */}
       <div className="flex items-center bg-blue-950 p-1 flex-grow py-2 ">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0 mr-2">
-          <Image
+          <h1 className="text-4xl text-bold text-white p-2">ZILION</h1>
+          {/* <Image
             onClick={() => router.push("/")}
             src="https://links.papareact.com/f90"
             width={80}
@@ -28,7 +29,7 @@ const Header = () => {
             alt="Amazon Logo"
             // layout="responsive"
             className="p-1 cursor-pointer object-contain"
-          />
+          /> */}
         </div>
         {/*  Search */}
         <div className="hidden sm:flex items-center h-10 rounded-md flex-grow bg-yellow-600 hover:bg-yellow-500">

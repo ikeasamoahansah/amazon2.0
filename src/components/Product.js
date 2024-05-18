@@ -36,7 +36,12 @@ function Product({ id, title, price, description, category, image }) {
       <p className="absolute top-2 right-2 text-xs italic text-gray-400">
         {category}
       </p>
-      <Image src={image} height={200} width={200} layout="responsive" />
+      <div className="flex justify-center items-center"> 
+      {/* Centered the image */}
+        <Image src={image} height={150} width={150} /> 
+        {/* removed layout="responsive" from the Image */}
+      </div>
+
       <h4 className="my-3">{title}</h4>
       <div className="flex">
         {Array(rating)

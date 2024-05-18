@@ -10,9 +10,8 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const paystack = require("paystack")(process.env.PAYSTACK_SECRET_KEY);
 
 export default async (req, res) => {
-    const {items, email} = req.body;
+  const { items, email } = req.body;
 
-    // test if the user is authenticated
-    console.log(items, email);
-    
-}
+  // test if the user is authenticated
+  console.log(items, email);
+};
