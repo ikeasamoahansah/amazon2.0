@@ -5,7 +5,11 @@ import ProductFeed from "../components/ProductFeed";
 import Card from "../components/cards";
 import DeliveryCard from "@/components/DeliveryCard";
 // import CheckoutProduct from "@/components/CheckoutProduct";
+import { useUser } from "@auth0/nextjs-auth0/client";
 export default function Home({ products }) {
+  const { user, error, isLoading } = useUser();
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
   return (
     <div className="bg-gray-100">
       <Head>
@@ -44,7 +48,7 @@ export default function Home({ products }) {
             label="Enhance your kitchen and home decor."
             id="8"
           />
-         
+
           <Card
             name="Apparel wheels and sneakers"
             label="Explore trendy apparel, wheels, and sneakers."

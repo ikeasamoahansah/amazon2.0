@@ -5,40 +5,35 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
-// import { signIn, signOut, useSession } from "next-auth/react";
 import {
   useUser,
   withPageAuthRequired,
   signIn,
   signOut,
 } from "@auth0/nextjs-auth0/client";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/basketSlice";
-// import { signIn } from "next-auth/react";
 
 const Header = () => {
-  // const { data: session } = useSession();
-  const { user, error, isLoading } = UserProvider(useUser());
+  const { user, error, isLoading } = useUser();
   const router = useRouter();
   const items = useSelector(selectItems);
 
+  function handleLogin() {
+    router.push("/api/auth/login");
+  }
+
+  function handleCheckout() {
+    router.push("/checkout");
+  }
   return (
+    // Header
     <header className="sticky top-0 z-50">
       {/* Top Nav */}
       <div className="flex items-center bg-blue-950 p-1 flex-grow py-2 ">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0 mr-2">
           <h1 className="text-4xl text-bold text-white p-2">ZILION</h1>
-          {/* <Image
-            onClick={() => router.push("/")}
-            src="https://links.papareact.com/f90"
-            width={80}
-            height={40}
-            alt="Amazon Logo"
-            // layout="responsive"
-            className="p-1 cursor-pointer object-contain"
-          /> */}
         </div>
         {/*  Search */}
         <div className="hidden sm:flex items-center h-8 rounded-md flex-grow bg-yellow-600 hover:bg-yellow-500">
@@ -51,9 +46,9 @@ const Header = () => {
           </button>
         </div>
         <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div onClick={!user ? signIn : signOut} className="link">
+          <div className="link" onClick={handleLogin}>
             <p className="hover:underline">
-              {session ? `Hello, ${session.user.name}` : "Sign In"}
+              {user ? `Hello, ${user.name}` : "Sign In"}
             </p>
             <p className="font-extrabold md:text-sm">Account &amp; List</p>
           </div>
@@ -62,7 +57,7 @@ const Header = () => {
             <p className="font-extrabold md:text-sm"> &amp; Orders</p>
           </div>
           <div
-            onClick={() => router.push("/checkout")}
+            onClick={handleCheckout}
             className="relative link flex items-center"
           >
             <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">

@@ -4,7 +4,7 @@ import CheckoutProduct from "@/components/CheckoutProduct";
 import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/basketSlice";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+import { useUser } from "@auth0/nextjs-auth0/client";
 import { selectTotal } from "@/slices/basketSlice";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
@@ -14,11 +14,10 @@ const stripePromise = loadStripe(process.env.stripe_public_key);
 const paystackPromise = loadStripe(process.env.paystack_public_key);
 
 function Checkout() {
-  // Changed from 'checkout' to 'Checkout'
-  // use selector and session storage
   const items = useSelector(selectItems);
-  const { data: session } = useSession();
+
   const total = useSelector(selectTotal);
+  const { user } = useUser();
   const formattedTotal = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -30,7 +29,7 @@ function Checkout() {
     // Call the backend to create a checkout session
     const checkoutSession = await axios.post("/api/create-checkout-session", {
       items,
-      email: session.user.email,
+      email: user.email,
     });
   };
   return (
@@ -59,6 +58,7 @@ function Checkout() {
                 category={item.category}
                 image={item.image}
                 rating={item.rating}
+                
                 hasPrime={item.hasPrime}
               />
             ))}
@@ -76,13 +76,13 @@ function Checkout() {
               <button
                 role="link"
                 onClick={createCheckoutSession}
-                disabled={!session}
+                disabled={!user}
                 className={`button mt-2 ${
-                  !session &&
+                  !user &&
                   "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
                 }`}
               >
-                {!session ? "Sign In to checkout" : "proceed to checkout"}
+                {!user ? "Sign In to checkout" : "proceed to checkout"}
               </button>
             </>
           )}
