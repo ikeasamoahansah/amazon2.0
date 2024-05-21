@@ -14,7 +14,7 @@ function Product({ id, title, price, description, category, image }) {
   const [hasPrime] = useState(Math.random() < 0.5);
   const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD",
+    currency: "GHS",
   }).format(price);
 
   const addItemToBasket = () => {
@@ -36,9 +36,9 @@ function Product({ id, title, price, description, category, image }) {
       <p className="absolute top-2 right-2 text-xs italic text-gray-400">
         {category}
       </p>
-      <div className="flex justify-center items-center"> 
-      {/* Centered the image */}
-        <Image src={image} height={150} width={150} /> 
+      <div className="flex justify-center items-center">
+        {/* Centered the image */}
+        <Image src={image} height={150} width={150} />
         {/* removed layout="responsive" from the Image */}
       </div>
 

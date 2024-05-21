@@ -21,7 +21,7 @@ function ProductFeed({ products }) {
       <Image
         width={800}
         height={400}
-        className="md:col-span-full"
+        className="md:col-span-full object-cover"
         layout="responsive"
         src="https://links.papareact.com/dyz"
         alt="Ad Banner"
