@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import clsx from "clsx";
 import {
   MenuIcon,
   SearchIcon,
@@ -22,16 +23,19 @@ const Header = () => {
   function handleCheckout() {
     router.push("/checkout");
   }
+
   return (
-    // Header
     <header className="sticky top-0 z-50">
-      {/* Top Nav */}
       <div className="flex items-center bg-blue-950 p-1 flex-grow py-2 ">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0 mr-2">
           <h1 className="text-4xl text-bold text-white p-2">ZILION</h1>
         </div>
-        {/*  Search */}
-        <div className="hidden sm:flex items-center h-8 rounded-md flex-grow bg-yellow-600 hover:bg-yellow-500">
+        <div
+          className={clsx(
+            "items-center h-8 rounded-md flex-grow bg-yellow-600 hover:bg-yellow-500",
+            { "hidden sm:flex": !isLoading }
+          )}
+        >
           <input
             className="p-2 h-full w-4 flex-grow flex-shrink rounded-l-lg focus:outline-none"
             type="text"
@@ -45,11 +49,11 @@ const Header = () => {
             <p className="hover:underline">
               {user ? `Hello, ${user.name}` : "Sign In"}
             </p>
-            <p className="font-extrabold md:text-sm">Account &amp; List</p>
+            <p className="font-extrabold md:text-sm">Account & List</p>
           </div>
           <div className="link">
             <p>Returns</p>
-            <p className="font-extrabold md:text-sm"> &amp; Orders</p>
+            <p className="font-extrabold md:text-sm"> & Orders</p>
           </div>
           <div
             onClick={handleCheckout}
@@ -63,9 +67,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {/* Right */}
-      {/* Bottom Nav */}
       <div className="flex items-center space-x-3 p-2 pl-6 bg-blue-900">
         <p className="link flex items-center">
           <MenuIcon className="h-6 mr-1" />
@@ -73,7 +74,7 @@ const Header = () => {
         </p>
         <p className="link">Prime Video</p>
         <p className="link">Amazon Business</p>
-        <p className="link">Today&apos;s Deals</p>
+        <p className="link">Today's Deals</p>
         <p className="link">Electronics</p>
       </div>
     </header>
