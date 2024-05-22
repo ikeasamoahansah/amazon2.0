@@ -8,7 +8,8 @@ import DeliveryCard from "@/components/DeliveryCard";
 import { useUser } from "@auth0/nextjs-auth0/client";
 export default function Home({ products }) {
   const { user, error, isLoading } = useUser();
-  if (isLoading) return <div>Loading...</div>;
+  // Splash screen
+  if (isLoading) return <div></div>;
   if (error) return <div>{error.message}</div>;
   return (
     <div className="bg-gray-100">

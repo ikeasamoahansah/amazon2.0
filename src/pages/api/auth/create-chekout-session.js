@@ -1,8 +1,4 @@
 // .../api/create-checkout-session.js
-
-import { getSession } from "next-auth/react";
-// import { insertOrder } from "@/db";
-// import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 
 const paystack = require("paystack")(process.env.PAYSTACK_SECRET_KEY);
