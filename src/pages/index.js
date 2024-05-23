@@ -1,4 +1,6 @@
 import Header from "../components/Header";
+import Header2 from "../components/Header2";
+
 import Head from "next/head";
 import Banner from "../components/Banner";
 import ProductFeed from "../components/ProductFeed";
@@ -17,7 +19,8 @@ export default function Home({ products }) {
         <title>Zilion E-commerce</title>
       </Head>
       {/* Header */}
-      <Header />
+      {/* <Header /> */}
+      <Header2 />
       <main className="max-w-screen-2xl mx-auto">
         <Banner />
         <ProductFeed products={products} />
