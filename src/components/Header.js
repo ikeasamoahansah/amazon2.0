@@ -1,17 +1,25 @@
 import React from "react";
-import Image from "next/image";
-import clsx from "clsx";
 import {
-  MenuIcon,
-  SearchIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/outline";
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Input,
+  DropdownItem,
+  DropdownTrigger,
+  Dropdown,
+  DropdownMenu,
+  Avatar,
+} from "@nextui-org/react";
+import { MenuIcon, ShoppingCartIcon } from "@heroicons/react/outline";
+import { SearchIcon } from "./SearchIcon.js";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/basketSlice";
 
-const Header = () => {
+export default function Header2() {
   const { user, error, isLoading } = useUser();
   const router = useRouter();
   const items = useSelector(selectItems);
@@ -19,48 +27,87 @@ const Header = () => {
   function handleLogin() {
     router.push("/api/auth/login");
   }
+  function handleLogout() {
+    router.push("/api/auth/logout");
+  }
 
   function handleCheckout() {
     router.push("/checkout");
   }
 
   return (
-    <header className="sticky top-0 z-50 overflow-x-auto bg-blue-950">
-      {" "}
-      <section className="flex items-center bg-blue-950 p-1 flex-grow py-1 sm:py-2 ">
-        <div className="mt-2 flex items-center flex-grow sm:flex-grow-0 sm:mr-2 sm-1">
-          <h1 className="text-2xl sm:text-4xl text-bold text-white sm:p-2 p-1 ">
-            ZILION
-          </h1>{" "}
-        </div>
-        <div
-          className={clsx(
-            "items-center h-8 rounded-md flex-grow bg-yellow-600 hover:bg-yellow-500",
-            { "hidden sm:flex": !isLoading }
-          )}
-        >
-          <input
-            className="p-2 h-full w-4 flex-grow flex-shrink rounded-l-lg focus:outline-none"
-            type="text"
+    <>
+      <Navbar isBordered className="bg-blue-950 w-full">
+        <NavbarContent justify="start" className="w-full">
+          <NavbarBrand className="">
+            <h1 className="text-2xl sm:text-4xl text-bold text-white sm:p-2 p-1 ">
+              ZILION
+            </h1>{" "}
+          </NavbarBrand>
+        </NavbarContent>
+
+        <NavbarContent as="div" className="items-center justify-center w-full">
+          <Input
+            className={{
+              base: "max-w-full h-10",
+              mainWrHeader2er: "h-full",
+              input: "text-small",
+              inputWrapper:
+                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+            }}
+            placeholder="Type to search..."
+            size="sm"
+            startContent={<SearchIcon size={18} />}
+            type="search"
           />
-          <button>
-            <SearchIcon className="h-12 p-4" />
-          </button>
-        </div>
-        <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div className="link" onClick={handleLogin}>
-            <p className="hover:underline">
-              {user ? `Hello, ${user.name}` : "Sign In"}
-            </p>
-            <p className="font-extrabold md:text-sm">Account & List</p>
-          </div>
-          <div className="link hidden sm:block">
-            <p>Returns</p>
-            <p className="font-extrabold md:text-sm"> & Orders</p>
-          </div>
+        </NavbarContent>
+
+        <NavbarContent as="div" className="items-center" justify="end">
+          {user ? (
+            <Dropdown placement="bottom-end">
+              <DropdownTrigger>
+                <Avatar
+                  isBordered
+                  as="button"
+                  className="transition-transform"
+                  color="primary"
+                  name={user.name}
+                  size="sm"
+                  src={user.picture}
+                />
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Profile Actions" variant="flat">
+                <DropdownItem key="profile" className="h-14 gap-2">
+                  Hello, {user.name}
+                  <p className="font-semibold">{user.email}</p>
+                </DropdownItem>
+                <DropdownItem key="returns_and_orders">
+                  Returns & Orders{" "}
+                </DropdownItem>
+                <DropdownItem
+                  key="logout"
+                  onClick={handleLogout}
+                  color="danger"
+                >
+                  Log Out
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          ) : (
+            <div
+              onClick={handleLogin}
+              className="flex-col hover:underline text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap"
+            >
+              <button>Sign In</button>
+              <button className="font-extrabold md:text-sm">
+                Account & List
+              </button>
+            </div>
+          )}
+          {/* cart function */}
           <div
             onClick={handleCheckout}
-            className="relative link flex items-center"
+            className="text-white relative link flex items-center"
           >
             <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
               {items.length}
@@ -68,25 +115,10 @@ const Header = () => {
             <ShoppingCartIcon className="h-10" />
             <p className="hidden md:inline font-extrabold md:text-sm mt-2"></p>
           </div>
-        </div>
-      </section>
-      {/* mobile search section */}
-      <section className="sm:hidden ">
-        <div
-          className={clsx(
-            "items-center h-8 rounded-md flex-grow m-2 bg-yellow-600 hover:bg-yellow-500 flex",
-            { " sm:flex": !isLoading }
-          )}
-        >
-          <input
-            className="p-3 h-full w-full rounded-l-lg focus:outline-none"
-            type="text"
-          />
-          <button>
-            <SearchIcon className="h-12  p-4" />
-          </button>
-        </div>
-      </section>
+        </NavbarContent>
+      </Navbar>
+
+      {/* temporary section */}
       <section className="flex items-center text-sm space-x-3 p-2 pl-6 bg-blue-900">
         <p className="link flex items-center">
           <MenuIcon className="h-6 mr-1" />
@@ -98,8 +130,6 @@ const Header = () => {
         <p className="link">Today&apos;s Deals</p>
         <p className="link">Electronics</p>
       </section>
-    </header>
+    </>
   );
-};
-
-export default Header;
+}

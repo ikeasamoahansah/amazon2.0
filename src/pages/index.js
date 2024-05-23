@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import Header2 from "../components/Header2";
+import Header from "../components/Amazon_Header";
+import Header2 from "../components/Header";
 
 import Head from "next/head";
 import Banner from "../components/Banner";
