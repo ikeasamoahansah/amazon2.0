@@ -25,10 +25,13 @@ const Header = () => {
   }
 
   return (
-    <header className="sticky top-0 z-50">
-      <div className="flex items-center bg-blue-950 p-1 flex-grow py-2 ">
-        <div className="mt-2 flex items-center flex-grow sm:flex-grow-0 mr-2">
-          <h1 className="text-4xl text-bold text-white p-2">ZILION</h1>
+    <header className="sticky top-0 z-50 overflow-x-auto bg-blue-950">
+      {" "}
+      <section className="flex items-center bg-blue-950 p-1 flex-grow py-1 sm:py-2 ">
+        <div className="mt-2 flex items-center flex-grow sm:flex-grow-0 sm:mr-2 sm-1">
+          <h1 className="text-2xl sm:text-4xl text-bold text-white sm:p-2 p-1 ">
+            ZILION
+          </h1>{" "}
         </div>
         <div
           className={clsx(
@@ -51,7 +54,7 @@ const Header = () => {
             </p>
             <p className="font-extrabold md:text-sm">Account & List</p>
           </div>
-          <div className="link">
+          <div className="link hidden sm:block">
             <p>Returns</p>
             <p className="font-extrabold md:text-sm"> & Orders</p>
           </div>
@@ -66,8 +69,25 @@ const Header = () => {
             <p className="hidden md:inline font-extrabold md:text-sm mt-2"></p>
           </div>
         </div>
-      </div>
-      <div className="flex items-center space-x-3 p-2 pl-6 bg-blue-900">
+      </section>
+      {/* mobile search section */}
+      <section className="sm:hidden ">
+        <div
+          className={clsx(
+            "items-center h-8 rounded-md flex-grow m-2 bg-yellow-600 hover:bg-yellow-500 flex",
+            { " sm:flex": !isLoading }
+          )}
+        >
+          <input
+            className="p-3 h-full w-full rounded-l-lg focus:outline-none"
+            type="text"
+          />
+          <button>
+            <SearchIcon className="h-12  p-4" />
+          </button>
+        </div>
+      </section>
+      <section className="flex items-center text-sm space-x-3 p-2 pl-6 bg-blue-900">
         <p className="link flex items-center">
           <MenuIcon className="h-6 mr-1" />
           All
@@ -77,7 +97,7 @@ const Header = () => {
 
         <p className="link">Today&apos;s Deals</p>
         <p className="link">Electronics</p>
-      </div>
+      </section>
     </header>
   );
 };

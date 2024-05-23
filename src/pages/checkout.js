@@ -58,7 +58,6 @@ function Checkout() {
                 category={item.category}
                 image={item.image}
                 rating={item.rating}
-                
                 hasPrime={item.hasPrime}
               />
             ))}
