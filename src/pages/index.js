@@ -1,5 +1,5 @@
-import Header from "../components/Amazon_Header";
-import Header2 from "../components/Header";
+// import Header from "../components/Amazon_Header";
+import Header from "../components/Header";
 
 import Head from "next/head";
 import Banner from "../components/Banner";
@@ -20,8 +20,8 @@ export default function Home({ products }) {
       </Head>
       {/* Header */}
       {/* <Header /> */}
-      <Header2 />
-      <main className="max-w-screen-2xl mx-auto">
+      <Header className="" />
+      <main className="max-w-screen-2xl mx-auto p-0">
         <Banner />
         <ProductFeed products={products} />
         {/* Card placeholder */}

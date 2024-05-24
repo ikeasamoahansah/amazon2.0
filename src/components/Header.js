@@ -19,7 +19,7 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/basketSlice";
 
-export default function Header2() {
+export default function Header() {
   const { user, error, isLoading } = useUser();
   const router = useRouter();
   const items = useSelector(selectItems);
@@ -37,16 +37,25 @@ export default function Header2() {
 
   return (
     <>
-      <Navbar isBordered className="bg-blue-950 w-full">
-        <NavbarContent justify="start" className="w-full">
-          <NavbarBrand className="">
+      <Navbar
+        isBordered // Add a border to the bottom of the navbar
+        className="bg-blue-950  h-1/2"
+      >
+        <NavbarContent
+          justify="start"
+          className="items-center justify-center w-full"
+        >
+          <NavbarBrand className="items">
             <h1 className="text-2xl sm:text-4xl text-bold text-white sm:p-2 p-1 ">
               ZILION
             </h1>{" "}
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent as="div" className="items-center justify-center w-full">
+        <NavbarContent
+          as="div"
+          className="items-center justify-center w-full px-0"
+        >
           <Input
             className={{
               base: "max-w-full h-10",
@@ -56,13 +65,17 @@ export default function Header2() {
                 "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
             }}
             placeholder="Type to search..."
-            size="sm"
+            size="md"
             startContent={<SearchIcon size={18} />}
             type="search"
           />
         </NavbarContent>
 
-        <NavbarContent as="div" className="items-center" justify="end">
+        <NavbarContent
+          as="div"
+          className="items-center justify-center w-full px-0"
+          justify="end"
+        >
           {user ? (
             <Dropdown placement="bottom-end">
               <DropdownTrigger>

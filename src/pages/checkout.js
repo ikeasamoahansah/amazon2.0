@@ -1,5 +1,5 @@
 import React from "react";
-import Header2 from "@/components/Header2";
+import Header from "@/components/Header";
 import CheckoutProduct from "@/components/CheckoutProduct";
 import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/basketSlice";
@@ -34,7 +34,7 @@ function Checkout() {
   };
   return (
     <div className="bg-gray-100">
-      <Header2 />
+      <Header />
       <main className="lg:flex max-w-screen-2xl mx-auto">
         {/* Left */}
         <div className="flex-grow m-5 shadow-sm">
