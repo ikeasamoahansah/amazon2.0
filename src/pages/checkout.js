@@ -6,30 +6,65 @@ import { selectItems } from "@/slices/basketSlice";
 import Image from "next/image";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { selectTotal } from "@/slices/basketSlice";
-import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 
-// import { loadStripe } from "stripe/stripe-js";
-const stripePromise = loadStripe(process.env.stripe_public_key);
-const paystackPromise = loadStripe(process.env.paystack_public_key);
+let paystack;
+
+if (typeof window === "undefined") {
+  // we are on the server
+  paystack = require("paystack");
+} else {
+  // we are on the client
+  paystack = null;
+}
 
 function Checkout() {
   const items = useSelector(selectItems);
-
   const total = useSelector(selectTotal);
   const { user } = useUser();
   const formattedTotal = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD",
+    currency: "GHS",
   }).format(total);
 
   const createCheckoutSession = async () => {
-    // const stripe = await stripePromise;
-    // const paystack = await paystackPromise;
     // Call the backend to create a checkout session
-    const checkoutSession = await axios.post("/api/create-checkout-session", {
-      items,
+    let checkoutSession;
+    try {
+      const response = await axios.post("/api/create-checkout-session", {
+        items,
+        email: user.email,
+      });
+      const checkoutSession = response.data;
+    } catch (error) {
+      console.log(error);
+    }
+
+    // Redirect to Paystack checkout
+    // const { data } = checkoutSession;
+    if (!checkoutSession) return;
+
+    const { authorization_url } = checkoutSession;
+    paystack.checkout({
+      key: process.env.paystack_public_key,
       email: user.email,
+      amount: total * 100,
+      ref: data.reference,
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "Items",
+            variable_name: "items",
+            value: items,
+          },
+        ],
+      },
+      callback: function (response) {
+        console.log(response);
+      },
+      onClose: function () {
+        alert("window closed");
+      },
     });
   };
   return (
@@ -91,4 +126,4 @@ function Checkout() {
   );
 }
 
-export default Checkout; // Changed from 'checkout' to 'Checkout'
+export default Checkout;
