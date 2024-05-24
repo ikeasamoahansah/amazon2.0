@@ -31,33 +31,33 @@ export default function Home({ products }) {
           <Card
             name="Electronic gadgets"
             label="Explore the latest tech and gadgets."
-            id="1"
+            id="https://melcom.com/media/catalog/category/Cat_-_Electronics_3_1_.jpg"
           />
           <Card
             name="Hair and beauty"
             label="Discover beauty products and hair essentials."
-            id="2"
+            id="https://melcom.com/media/catalog/category/Cat_-_Mobile__1.jpg"
           />
           <Card
             name="Sports and wellness"
             label="Stay active with sports and wellness items."
-            id="3"
+            id="https://melcom.com/media/catalog/category/Cat_-_Supermaket_2_3.jpg"
           />
           <Card
             name="Grocery"
             label="Stock up on essential groceries."
-            id="4"
+            id="https://melcom.com/media/catalog/category/Toys_Kids_and_babies_3.jpg"
           />
           <Card
             name="Kitchen and decor"
             label="Enhance your kitchen and home decor."
-            id="8"
+            id="https://melcom.com/media/catalog/category/Cat_-_Home_Furniture_1_2.jpg"
           />
 
           <Card
             name="Apparel wheels and sneakers"
             label="Explore trendy apparel, wheels, and sneakers."
-            id="6"
+            id="https://melcom.com/media/catalog/category/Sports_Fitness.jpg"
           />
         </section>
         <DeliveryCard />

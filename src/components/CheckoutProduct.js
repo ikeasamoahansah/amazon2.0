@@ -78,7 +78,7 @@ function CheckoutProduct({
         )}
       </div>
       {/* Right add/remove buttons */}
-      <div className="flex flex-col space-y-2 my-auto justify-self-end">
+      <div className="flex flex-col space-y-2  my-auto justify-self-end">
         <button className="button" onClick={addItemToBasket}>
           Add to Basket
         </button>
