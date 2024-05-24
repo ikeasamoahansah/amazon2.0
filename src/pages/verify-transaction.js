@@ -1,5 +1,5 @@
-// // .../api/verify-transaction.js
-// import axios from "axios";
+// .../api/verify-transaction.js
+import axios from "axios";
 
 // export default async (req, res) => {
 //     // Check if req.query is defined and it has a 'reference' property
@@ -31,4 +31,8 @@
 //       // Handle any errors that occur during the request
 //       res.status(500).json({ error: "An error occurred while verifying the transaction" });
 //     }
-//   };
+// };
+
+export default () => {
+  console.log("Hello World");
+};
