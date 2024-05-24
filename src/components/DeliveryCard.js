@@ -1,52 +1,56 @@
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/solid";
 function DeliveryCard() {
-    const deliveries = [
-        {
-          name: "Delivery 1",
-          img: "/amazon-prime.svg",
-          label: "Label 1",
-        },
-        {
-          name: "Delivery 2",
-          img: "/amazon-prime.svg",
-          label: "Label 2",
-        },
-        {
-          name: "Delivery 3",
-          img: "/amazon-prime.svg",
-          label: "Label 3",
-        },
-        {
-          name: "Delivery 4",
-          img: "/amazon-prime.svg",
-          label: "Label 4",
-        },
-      ];
-  return (  <>
-    {deliveries.map((delivery, index) => (
-      <div
-        key={index}
-        className="bg-white rounded-lg shadow-md p-4 grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1"
-      >
-        <div className="flex flex-col">
-          <h2 className="text-xl font-semibold">{delivery.name}</h2>
-          <p className="text-blue-400">{delivery.label}</p>
-        </div>
-        <div className="flex justify-end">
-          <Image
-            src={delivery.img}
-            alt={delivery.name}
-            width={100}
-            height={100}
-            className="rounded-lg transition-transform hover:scale-110"
-          />
-        </div>
-      </div>
-    ))}
-  </>
-);
+  const deliveries = [
+    {
+      name: "Same Day Delivery",
+      src: "https://melcom.com/media/Icons/shipping-fast-delivery-man-riding-260nw-1573225051_1.jpg",
+      label:
+        "Same Day Delivery. On supermarket orders. Applicable on COD orders only within Greater Accra ( T & C's apply)",
+    },
+    {
+      name: "Free Shipping",
+      src: "https://melcom.com/media/icon_cms1.png",
+      label: "Accra, Tema & Kumasi on all orders over ₵ 50.00",
+    },
+    {
+      name: "Standard Delivery",
+      src: "https://melcom.com/media/Icons/shipping-fast-delivery-man-riding-260nw-1573225051_1.jpg",
+
+      label: "Within 48 t0 72h of order confirmation",
+    },
+
+    {
+      name: "Safe & Secure Payments",
+      src: "https://melcom.com/media/icon_cms3.png",
+      label: "Cash On Delivery, MOMO, CC / DC",
+    },
+  ];
+
+  return (
+    <div className="grid bg-white rounded-lg  lg:grid-cols-4 md:grid-cols-2 shadow-md border m-4 p-4 sm:grid-cols-1 gap-4">
+      {deliveries.map((delivery, index) => {
+        const Icon = delivery.icon;
+        return (
+          <div key={index} className="grid grid-cols-2">
+            {/* <Icon className="h-10 w-10 my-2" aria-hidden="true" /> */}
+            <img
+            className="m-4"
+              src={delivery.src}
+              alt={delivery.name}
+              width={50}
+              height={50}
+            />
+            <div className="flex  flex-col right-16 relative ">
+              <h1 className="text-sm font-semibold">{delivery.name}</h1>
+              <p className="text-xs text-gray-800">{delivery.label}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default DeliveryCard;

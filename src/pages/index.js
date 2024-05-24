@@ -8,6 +8,7 @@ import Card from "../components/cards";
 import DeliveryCard from "@/components/DeliveryCard";
 // import CheckoutProduct from "@/components/CheckoutProduct";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Footer from "@/components/Footer";
 export default function Home({ products }) {
   const { user, error, isLoading } = useUser();
   // Splash screen
@@ -59,7 +60,8 @@ export default function Home({ products }) {
             id="6"
           />
         </section>
-        {/* <DeliveryCard/> */}
+        <DeliveryCard />
+        <Footer />
       </main>
     </div>
   );

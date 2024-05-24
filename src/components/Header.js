@@ -137,7 +137,7 @@ export default function Header() {
       </Navbar>
 
       {/* temporary section */}
-      <section className="flex items-center text-sm space-x-3 p-2 pl-6 bg-cyan-900">
+      {/* <section className="flex items-center text-sm space-x-3 p-2 pl-6 bg-cyan-900">
         <p className="link flex items-center">
           <MenuIcon className="h-6 mr-1" />
           All
@@ -147,7 +147,7 @@ export default function Header() {
 
         <p className="link">Today&apos;s Deals</p>
         <p className="link">Electronics</p>
-      </section>
+      </section> */}
     </>
   );
 }
