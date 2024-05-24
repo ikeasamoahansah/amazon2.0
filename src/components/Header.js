@@ -39,7 +39,7 @@ export default function Header() {
     <>
       <Navbar
         isBordered // Add a border to the bottom of the navbar
-        className="bg-blue-950  h-1/2"
+        className="bg-cyan-950  h-1/2"
       >
         <NavbarContent
           justify="start"
@@ -83,13 +83,18 @@ export default function Header() {
                   isBordered
                   as="button"
                   className="transition-transform"
-                  color="primary"
+                  // color=""
                   name={user.name}
-                  size="sm"
+                  size="md"
                   src={user.picture}
                 />
               </DropdownTrigger>
-              <DropdownMenu aria-label="Profile Actions" variant="flat">
+              <DropdownMenu
+                aria-label="Profile Actions"
+                variant="flat"
+                // color="primary"
+                className=" text-black"
+              >
                 <DropdownItem key="profile" className="h-14 gap-2">
                   Hello, {user.name}
                   <p className="font-semibold">{user.email}</p>
@@ -122,7 +127,7 @@ export default function Header() {
             onClick={handleCheckout}
             className="text-white relative link flex items-center"
           >
-            <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
+            <span className="absolute top-0 right-0 h-4 w-4 bg-cyan-400 text-center rounded-full text-black font-bold">
               {items.length}
             </span>
             <ShoppingCartIcon className="h-10" />
@@ -132,7 +137,7 @@ export default function Header() {
       </Navbar>
 
       {/* temporary section */}
-      <section className="flex items-center text-sm space-x-3 p-2 pl-6 bg-blue-900">
+      <section className="flex items-center text-sm space-x-3 p-2 pl-6 bg-cyan-900">
         <p className="link flex items-center">
           <MenuIcon className="h-6 mr-1" />
           All
