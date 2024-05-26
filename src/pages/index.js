@@ -7,13 +7,13 @@ import ProductFeed from "../components/ProductFeed";
 import Card from "../components/cards";
 import DeliveryCard from "@/components/DeliveryCard";
 // import CheckoutProduct from "@/components/CheckoutProduct";
-import { useUser } from "@auth0/nextjs-auth0/client";
+// import { useUser } from "@auth0/nextjs-auth0/client";
 import Footer from "@/components/Footer";
 export default function Home({ products }) {
-  const { user, error, isLoading } = useUser();
+  // const { user, error, isLoading } = useUser();
   // Splash screen
-  if (isLoading) return <div></div>;
-  if (error) return <div>{error.message}</div>;
+  // if (isLoading) return <div></div>;
+  // if (error) return <div>{error.message}</div>;
   return (
     <div className="bg-gray-100">
       <Head>

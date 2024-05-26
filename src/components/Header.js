@@ -54,7 +54,7 @@ export default function Header() {
 
         <NavbarContent
           as="div"
-          className="items-center justify-center w-full px-0"
+          className="items-center justify-center w-full px-0 hidden sm:block mt-5"
         >
           <Input
             className={{
@@ -136,18 +136,25 @@ export default function Header() {
         </NavbarContent>
       </Navbar>
 
-      {/* temporary section */}
-      {/* <section className="flex items-center text-sm space-x-3 p-2 pl-6 bg-cyan-900">
-        <p className="link flex items-center">
-          <MenuIcon className="h-6 mr-1" />
-          All
-        </p>
-        <p className="link">Prime Video</p>
-        <p className="link">Amazon Business</p>
-
-        <p className="link">Today&apos;s Deals</p>
-        <p className="link">Electronics</p>
-      </section> */}
+{/* Mobile search bar */}
+        <section
+          className="items-center bg-cyan-950 justify-center w-full px-0 sm:hidden block py-2 px-3"
+        >
+          <Input
+            className={{
+              base: "max-w-full h-10",
+              mainWrHeader2er: "h-full",
+              input: "text-small",
+              inputWrapper:
+                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+            }}
+            placeholder="Type to search..."
+            size="md"
+            startContent={<SearchIcon size={18} />}
+            type="search"
+          />
+        </section>
     </>
+
   );
 }
