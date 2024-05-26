@@ -31,7 +31,7 @@ function Checkout() {
     // Call the backend to create a checkout session
     let checkoutSession;
     try {
-      const response = await axios.post("/api/create-checkout-session", {
+      const response = await axios.post("/api/paystack-checkout", {
         items,
         email: user.email,
       });
