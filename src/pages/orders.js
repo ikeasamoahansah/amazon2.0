@@ -13,7 +13,7 @@ const orders = ({ orders }) => {
       <main className="max-w-screen-lg max-auto p-10">
         <h1 className="text-3xl">Your Orders</h1>
         {user ? <h2>orders</h2> : <h2>Please signin to see your orders</h2>}
-      <div className="mt-5 space-y-4"></div>
+        <div className="mt-5 space-y-4"></div>
       </main>
     </div>
   );
@@ -21,6 +21,6 @@ const orders = ({ orders }) => {
 
 export default orders;
 
-export async function getServerSideProps(context){
-    const paystack = require('paystack')(process.env.PAYSTACK_SECRET_KEY)
+export async function getServerSideProps(context) {
+  const paystack = require("paystack")(process.env.PAYSTACK_SECRET_KEY);
 }
