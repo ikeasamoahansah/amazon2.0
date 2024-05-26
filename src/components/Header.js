@@ -46,9 +46,11 @@ export default function Header() {
           className="items-center justify-center w-full"
         >
           <NavbarBrand className="items">
-            <h1 className="text-2xl sm:text-4xl text-bold text-white sm:p-2 p-1 ">
-              ZILION
-            </h1>{" "}
+            <a href="/" className="">
+              <h1 className="text-2xl sm:text-4xl text-bold text-white sm:p-2 p-1 ">
+                ZILION
+              </h1>{" "}
+            </a>
           </NavbarBrand>
         </NavbarContent>
 
@@ -136,25 +138,22 @@ export default function Header() {
         </NavbarContent>
       </Navbar>
 
-{/* Mobile search bar */}
-        <section
-          className="items-center bg-cyan-950 justify-center w-full px-0 sm:hidden block py-2 px-3"
-        >
-          <Input
-            className={{
-              base: "max-w-full h-10",
-              mainWrHeader2er: "h-full",
-              input: "text-small",
-              inputWrapper:
-                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-            }}
-            placeholder="Type to search..."
-            size="md"
-            startContent={<SearchIcon size={18} />}
-            type="search"
-          />
-        </section>
+      {/* Mobile search bar */}
+      <section className="items-center bg-cyan-950 justify-center w-full px-0 sm:hidden block py-2 px-3">
+        <Input
+          className={{
+            base: "max-w-full h-10",
+            mainWrHeader2er: "h-full",
+            input: "text-small",
+            inputWrapper:
+              "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+          }}
+          placeholder="Type to search..."
+          size="md"
+          startContent={<SearchIcon size={18} />}
+          type="search"
+        />
+      </section>
     </>
-
   );
 }
