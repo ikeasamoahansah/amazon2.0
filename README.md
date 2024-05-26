@@ -1,14 +1,21 @@
 ## Zilion E-commerce
+
 ### Getting Started
+
 **Clone the repository**
+
 ```bash
-git clone https://github.com/your-repo/zilion-e-commerce.git
+git clone https://github.com/jnopareboateng/zilion-e-commerce.git
 ```
+
 **Install dependencies with npm install**
+
 ```bash
 npm install
 ```
+
 **Create a .env file with your environment variables**
+
 ```Makefile
 # .env file
 NEXT_PUBLIC_AUTH0_DOMAIN=your-auth0-domain
@@ -17,12 +24,14 @@ NEXT_PUBLIC_AUTH0_CLIENT_SECRET=your-auth0-client-secret
 ```
 
 **Run the development server with npm run dev**
+
 ```Bash
 npm run dev
 ```
 
 **Key Features**
 **Authentication and Authorization with Auth0**
+
 ```JavaScript
 import auth0 from '../lib/auth0';
 
@@ -34,7 +43,9 @@ const login = async () => {
   }
 };
 ```
+
 **Payment Gateway Integration with Paystack**
+
 ```JavaScript
 import paystack from '../lib/paystack';
 
@@ -50,7 +61,9 @@ const makePayment = async () => {
   }
 };
 ```
+
 **Next.js Specifics: SSR, SSG, client-side routing, and i18n**
+
 ```JavaScript
 import NextPage from 'next';
 
@@ -64,51 +77,51 @@ export default NextPage(HomePage, {
   },
 });
 ```
+
 **API Endpoints**
-```Authentication
-Bash
-# Login
-POST /api/auth/login
 
-# Register
-POST /api/auth/register
+**Authentication**
 
-# Logout
-POST /api/auth/logout
-Payment
-Bash
-# Initiate payment
-POST /api/payment/init
+**Login**
 
-# Verify payment
-GET /api/payment/verify
+`POST` /api/auth/login
+
+**Register**
+
+`POST` /api/auth/register
+
+**Logout**
+
+`POST` /api/auth/logout
+
+**Payment**
+
+**Initiate payment**
+
+`POST` /api/payment/init
+
+**Verify payment**
+
+`GET`/api/payment/verify
 Products
-Bash
-# Get all products
-GET /api/products
 
-# Get product by ID
-GET /api/products/:id
-Orders
-Bash
-# Get all orders
-GET /api/orders
+### Get all products
 
-# Get order by ID
-GET /api/orders/:id
-```
-Deployment
-Deploys to serverless platforms like Vercel or Netlify
-Bash
-# Vercel deployment
-vercel deploy
+`GET`/api/products
 
-# Netlify deployment
-netlify deploy
-Implements containerization with Docker
-Bash
-# Build Docker image
-docker build -t zilion-e-commerce .
+**Get product by ID**
 
-# Run Docker container
-docker run -p 3000:3000 zilion-e-commerce
+`GET` /api/products/:id
+
+### Orders
+
+**Get all orders**
+`GET` /api/orders
+
+**Get order by ID**
+
+`GET` /api/orders/:id
+
+**Deployment**
+
+Web app is deployed on Vercel as https://zilion.vercel.app
