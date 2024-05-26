@@ -35,6 +35,11 @@ export default function Header() {
     router.push("/checkout");
   }
 
+// Todo: add replace the carousel images
+// FIXME:  1. https://www.pexels.com/photo/woman-in-blue-denim-jeans-talking-to-her-mobile-phone-6995253/
+// FIXME: 2. https://www.istockphoto.com/photo/shopping-online-woman-hand-online-shopping-on-laptop-computer-with-virtual-graphic-gm1428709516-472100169?utm_campaign=srp_photos_10&utm_content=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fonline%2520shopping%2F&utm_medium=affiliate&utm_source=pexels&utm_term=online%20shopping
+// FIXME: 3. https://www.istockphoto.com/photo/latina-female-using-desktop-computer-with-clothing-online-web-store-to-choose-and-gm1347626309-425070530?utm_campaign=srp_photos_10&utm_content=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fonline%2520shopping%2F&utm_medium=affiliate&utm_source=pexels&utm_term=online%20shopping
+// FIXME: 4. https://www.istockphoto.com/photo/the-convenience-of-shopping-online-gm1467976868-499633289?utm_campaign=srp_photos_40&utm_content=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fonline%2520shopping%2F&utm_medium=affiliate&utm_source=pexels&utm_term=online%20shopping
   return (
     <>
       <Navbar
