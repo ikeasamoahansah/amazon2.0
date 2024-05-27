@@ -1,9 +1,8 @@
 import React from "react";
 import { useUser } from "@auth0/nextjs-auth0";
-import { getSession } from "@auth0/nextjs-auth0";
 import Header from "@/components/Header";
 
-const orders = ({ orders }) => {
+const Orders = ({ orders }) => {
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading</div>;
@@ -13,15 +12,11 @@ const orders = ({ orders }) => {
       <Header/>
       <main className="max-w-screen-lg max-auto p-10">
         <h1 className="text-3xl">Your Orders</h1>
-        {user ? <h2>orders</h2> : <h2>Please signin to see your orders</h2>}
-      <div className="mt-5 space-y-4"></div>
+        {user ? <h2>orders</h2> : <h2>Please sign in to see your orders</h2>}
+        <div className="mt-5 space-y-4"></div>
       </main>
     </div>
   );
 };
 
-export default orders;
-
-export async function getServerSideProps(context){
-    const paystack = require('paystack')(process.env.PAYSTACK_SECRET_KEY)
-}
+export default Orders;
