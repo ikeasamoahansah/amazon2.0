@@ -18,7 +18,6 @@ import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/basketSlice";
-
 export default function Header() {
   const { user, error, isLoading } = useUser();
   const router = useRouter();
@@ -51,11 +50,11 @@ export default function Header() {
           className="items-center justify-center w-full"
         >
           <NavbarBrand className="items">
-            <a href="/" className="">
+            <Link href="/" className="">
               <h1 className="text-2xl sm:text-4xl text-bold text-white sm:p-2 p-1 ">
                 ZILION
               </h1>{" "}
-            </a>
+            </Link>
           </NavbarBrand>
         </NavbarContent>
 
