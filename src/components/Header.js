@@ -143,22 +143,26 @@ export default function Header() {
         </NavbarContent>
       </Navbar>
 
-      {/* Mobile search bar */}
-      <section className="items-center bg-cyan-950 justify-center w-full px-0 sm:hidden block py-2 px-3">
-        <Input
-          className={{
-            base: "max-w-full h-10",
-            mainWrHeader2er: "h-full",
-            input: "text-small",
-            inputWrapper:
-              "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-          }}
-          placeholder="Type to search..."
-          size="md"
-          startContent={<SearchIcon size={18} />}
-          type="search"
-        />
-      </section>
+{/* Mobile search bar */}
+        <section
+          className="items-center bg-cyan-950 justify-center w-full px-0 sm:hidden block py-2 px-3"
+        >
+          <Input
+            className={{
+              base: "max-w-full h-10",
+              mainWrHeader2er: "h-full",
+              input: "text-small",
+              inputWrapper:
+                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+            }}
+            placeholder="Type to search..."
+            size="md"
+            startContent={<SearchIcon size={18} />}
+            type="search"
+          />
+        </section>
+
     </>
+
   );
 }
