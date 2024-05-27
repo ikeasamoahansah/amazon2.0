@@ -31,8 +31,6 @@ const Banner = () => {
             height={1080}
             loading="lazy"
             src="/i1.jpg"
-            
-              
             alt=" carousel image 2"
           />
         </div>
