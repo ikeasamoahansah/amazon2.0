@@ -1,5 +1,5 @@
 // api/webhooks/paystack.js
-import { buffer } from "micro";
+// import { buffer } from "micro";
 import { getSession } from "@auth0/nextjs-auth0";
 
 const crypto = require("crypto");
