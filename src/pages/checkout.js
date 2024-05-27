@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { selectTotal } from "@/slices/basketSlice";
 import axios from "axios";
+import { PaystackButton } from 'react-paystack'
 
 let paystack;
 
@@ -22,51 +23,33 @@ function Checkout() {
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
   const { user } = useUser();
+  const publicKey = "pk_test_952f74cc6cac30bea0bfe814a84cc07b9c454045"
+const currency = "GHS"
+const email = "22@gmail.com"
+const amount = total * 100
+const channels=['card', 'bank','mobile_money']
   const formattedTotal = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "GHS",
   }).format(total);
 
-  const createCheckoutSession = async () => {
-    // Call the backend to create a checkout session
-    let checkoutSession;
-    try {
-      const response = await axios.post("/api/paystack-checkout", {
-        items,
-        email: user.email,
-      });
-      const checkoutSession = response.data;
-    } catch (error) {
-      console.log(error);
-    }
-
-    // Redirect to Paystack checkout
-    // const { data } = checkoutSession;
-    if (!checkoutSession) return;
-
-    const { authorization_url } = checkoutSession;
-    paystack.checkout({
-      key: process.env.paystack_public_key,
-      email: user.email,
-      amount: total * 100,
-      ref: data.reference,
-      metadata: {
-        custom_fields: [
-          {
-            display_name: "Items",
-            variable_name: "items",
-            value: items,
-          },
-        ],
-      },
-      callback: function (response) {
-        console.log(response);
-      },
-      onClose: function () {
-        alert("window closed");
-      },
-    });
-  };
+  const componentProps = {
+    amount,
+    email,
+    currency,
+    channels,
+    label: "User ID: 345",
+    "metadata": {
+      "custom_filters": {
+        "card_brands": ["visa", "mastercard"]
+      }
+    },
+    publicKey,
+    text: "Pay Now",
+    // onSuccess: () =>
+      // alert("Thanks for doing business with us! Come back soon!!"),
+    // onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+  }
   return (
     <div className="bg-gray-100">
       <Header />
@@ -109,15 +92,16 @@ function Checkout() {
               </h2>
               <button
                 role="link"
-                onClick={createCheckoutSession}
+                // onClick={createCheckoutSession}
                 disabled={!user}
                 className={`button mt-2 ${
                   !user &&
                   "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
                 }`}
               >
-                {!user ? "Sign In to checkout" : "proceed to checkout"}
+                {!user ? "Sign In to checkout" :<PaystackButton className="paystack-button" {...componentProps} />}
               </button>
+
             </>
           )}
         </div>
