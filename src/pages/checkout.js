@@ -101,7 +101,7 @@ const channels=['card', 'bank','mobile_money']
               >
                 {!user ? "Sign In to checkout" :<PaystackButton className="paystack-button" {...componentProps} />}
               </button>
-
+              <PaystackButton className="paystack-button" {...componentProps} />
             </>
           )}
         </div>

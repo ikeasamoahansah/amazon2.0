@@ -4,7 +4,7 @@ import { getSession } from "@auth0/nextjs-auth0";
 
 const crypto = require("crypto");
 // Establish connection to Paystack
-const paystack = require("paystack")(process.env.PAYSTACK_SECRET_KEY);
+const paystack = require("sk_test_9a4ed2569462cdb95152c9c9ff660bf05ec2b4d8");
 // const endpointSecret = process.env.STRIPE_SIGNING_SECRET; // Uncomment and set the actual secret
 
 // Handle the incoming webhook
